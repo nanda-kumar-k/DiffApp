@@ -11789,3 +11789,25 @@
 2025-06-30 01:45:55,134 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:45:55] "[36mGET /static/css/basic.css HTTP/1.1[0m" 304 -
 2025-06-30 01:45:55,136 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:45:55] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
 2025-06-30 01:45:55,442 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:45:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 01:53:05,532 [INFO] app: Starting Flask application
+2025-06-30 01:53:05,651 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.2:8000
+2025-06-30 01:53:05,651 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-06-30 01:53:05,652 [INFO] werkzeug:  * Restarting with stat
+2025-06-30 01:53:06,074 [INFO] app: Starting Flask application
+2025-06-30 01:53:06,097 [WARNING] werkzeug:  * Debugger is active!
+2025-06-30 01:53:06,108 [INFO] werkzeug:  * Debugger PIN: 784-617-488
+2025-06-30 01:53:09,423 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:09] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-30 01:53:09,464 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:09] "GET /json/upload HTTP/1.1" 200 -
+2025-06-30 01:53:09,519 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:09] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-06-30 01:53:09,520 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:09] "GET /static/css/basic.css HTTP/1.1" 200 -
+2025-06-30 01:53:09,766 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 01:53:11,031 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:11] "[32mGET /spreadsheet/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 01:53:11,046 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:11] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-06-30 01:53:11,093 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:11] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-06-30 01:53:11,093 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:11] "GET /static/css/basic.css HTTP/1.1" 200 -
+2025-06-30 01:53:11,709 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:11] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-06-30 01:53:11,731 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:11] "[36mGET /static/css/basic.css HTTP/1.1[0m" 304 -
+2025-06-30 01:53:11,739 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:53:11] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
