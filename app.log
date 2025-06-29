@@ -11769,3 +11769,8 @@
 2025-06-30 00:45:50,166 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:45:50] "GET /json/dashboard HTTP/1.1" 200 -
 2025-06-30 00:45:50,211 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:45:50] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
 2025-06-30 00:45:50,211 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:45:50] "[36mGET /static/css/basic.css HTTP/1.1[0m" 304 -
+2025-06-30 00:50:36,902 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:50:36] "[32mGET /spreadsheet/dashboard HTTP/1.1[0m" 302 -
+2025-06-30 00:50:36,913 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:50:36] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-06-30 00:50:36,991 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:50:36] "[36mGET /static/css/basic.css HTTP/1.1[0m" 304 -
+2025-06-30 00:50:37,000 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:50:37] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-06-30 00:50:37,193 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 00:50:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
