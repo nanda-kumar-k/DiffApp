@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+{% block title %}JSON Diff Result{% endblock %}
+
+{% block head %}
+<style>
+    /* ---------------------------------------
+       Card container for each change category
+       --------------------------------------- */
+    .diff-card {
+        border: 1px solid #ced4da;
+        /* light gray border */
+        border-radius: 5px;
+        margin-bottom: 1.5rem;
+        /* space between cards */
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Card header styling */
+    .diff-card-header {
+        padding: 0.75rem 1rem;
+        background-color: #f1f3f5;
+        /* light gray background */
+        border-bottom: 1px solid #ced4da;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #343a40;
+    }
+
+    /* Card body: scrollable area with fixed max-height */
+    .diff-card-body {
+        flex-grow: 1;
+        max-height: 60vh;
+        /* 60% of viewport height */
+        overflow-y: auto;
+        padding: 1rem;
+        /* inner padding */
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #212529;
+        transition: max-height 0.3s ease;
+    }
+
+    .diff-card-body.expanded {
+        max-height: none;
+        /* remove height constraint when expanded */
+    }
+
+    /* Add a bottom border and spacing between diff-list-items */
+    .diff-list-item+.diff-list-item {
+        border-top: 1px solid #e9ecef;
+        padding-top: 0.75rem;
+        margin-top: 0.75rem;
+    }
+
+    /* Footer with the View More/Less button */
+    .diff-card-footer {
+        padding: 0.5rem 1rem;
+        background-color: #f1f3f5;
+        border-top: 1px solid #ced4da;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-align: center;
+    }
+
+    .toggle-btn {
+        background: none;
+        border: none;
+        color: #0d6efd;
+        /* Bootstrap link color */
+        font-size: 0.9rem;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .toggle-btn:hover {
+        text-decoration: underline;
+    }
+
+    /* List‐style reset for each category */
+    .diff-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .diff-list-item {
+        margin-bottom: 0;
+        /* space is handled by border/padding above */
+    }
+
+    /* “Old:” badge (red) */
+    .badge-old {
+        display: inline-block;
+        background-color: #dc3545;
+        /* Bootstrap red */
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.15rem 0.4rem;
+        border-radius: 0.25rem;
+        margin-right: 0.5rem;
+    }
+
+    /* “New:” badge (green) */
+    .badge-new {
+        display: inline-block;
+        background-color: #198754;
+        /* Bootstrap green */
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.15rem 0.4rem;
+        border-radius: 0.25rem;
+        margin-right: 0.5rem;
+    }
+
+    /* “Uprooted:” badge (yellow) */
+    .badge-uprooted {
+        display: inline-block;
+        background-color: #ffc107;
+        /* Bootstrap yellow */
+        color: #212529;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.15rem 0.4rem;
+        border-radius: 0.25rem;
+        margin-right: 0.5rem;
+    }
+
+    /* Path text style (pinkish) */
+    .diff-path {
+        color: #c7254e;
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    /* Add vertical spacing between Old / New / Uprooted rows */
+    .diff-block {
+        margin-bottom: 0.5rem;
+        /* adjust as needed */
+    }
+
+    /* Page title centering */
+    h3.page-title {
+        /* margin-top: 1.5rem; */
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #343a40;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid h-100">
+    <h3 class="page-title">Difference Between JSONs</h3>
+
+    {% if diff | length == 0 %}
+    <div class="alert alert-success text-center">
+        No differences to display—JSONs are identical.
+    </div>
+    {% else %}
+    <div class="row">
+        {% for change_type, items in diff.items() %}
+        <div class="col-12 mb-4">
+            <div class="diff-card">
+                <!-- Card Header: “Dictionary Item Removed”, “Values Changed”, etc. -->
+                <div class="diff-card-header">
+                    {{ change_type | replace('_', ' ') | title }}
+                </div>
+
+                <!-- Card Body: list of diff entries -->
+                <div id="body-{{ loop.index }}" class="diff-card-body">
+                    <ul class="diff-list">
+                        {% if items is mapping %}
+                        {% for _, detail in items.items() %}
+                        <li class="diff-list-item">
+                            <!-- Path, in pink monospace -->
+                            <span class="diff-path">Path: {{ detail.path() }}</span>
+
+                            {% if detail.t1 is not none %}
+                            <div class="diff-block">
+                                <span class="badge-old">Old:</span>
+                                <span>{{ detail.t1 }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if detail.t2 is not none %}
+                            <div class="diff-block">
+                                <span class="badge-new">New:</span>
+                                <span>{{ detail.t2 }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if detail.uprooted is not none %}
+                            <div class="diff-block">
+                                <span class="badge-uprooted">Uprooted:</span>
+                                <span>{{ detail.uprooted }}</span>
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        {% for detail in items %}
+                        <li class="diff-list-item">
+                            <span class="diff-path">Path: {{ detail.path() }}</span>
+
+                            {% if detail.t1 is not none %}
+                            <div class="diff-block">
+                                <span class="badge-old">Old:</span>
+                                <span>{{ detail.t1 }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if detail.t2 is not none %}
+                            <div class="diff-block">
+                                <span class="badge-new">New:</span>
+                                <span>{{ detail.t2 }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if detail.uprooted is not none %}
+                            <div class="diff-block">
+                                <span class="badge-uprooted">Uprooted:</span>
+                                <span>{{ detail.uprooted }}</span>
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <!-- Card Footer: per‐category “View More/Less” -->
+                <div class="diff-card-footer">
+                    <button id="toggle-{{ loop.index }}" class="toggle-btn">
+                        View More
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // For each category card, set up toggle logic
+        {% for _ in diff.items() %}
+        (function (idx) {
+            const bodyEl = document.getElementById("body-" + idx);
+            const btnEl = document.getElementById("toggle-" + idx);
+            if (!bodyEl || !btnEl) return;
+
+            // Compute 60vh in pixels
+            const maxHeightPx = window.innerHeight * 0.60;
+
+            // After a short delay (allow browser to render), hide button if not needed
+            setTimeout(() => {
+                if (bodyEl.scrollHeight <= maxHeightPx) {
+                    btnEl.style.display = "none";
+                }
+            }, 50);
+
+            let expanded = false;
+            btnEl.addEventListener("click", function () {
+                if (!expanded) {
+                    bodyEl.classList.add("expanded");
+                    btnEl.textContent = "View Less";
+                } else {
+                    bodyEl.classList.remove("expanded");
+                    btnEl.textContent = "View More";
+                }
+                expanded = !expanded;
+            });
+        })({{ loop.index }});
+    {% endfor %}
+    });
+</script>
+{% endblock %}

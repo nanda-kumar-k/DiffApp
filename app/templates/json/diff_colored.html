@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Colorized JSON Diff (DMP){% endblock %}
+
+{% block head %}
+  <style>
+    /* Wrap the diff table so it doesn’t exceed 75vh */
+    .diff-wrapper {
+      max-height: 75vh;
+      overflow-y: auto;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      background: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    /* Tweak diff-match-patch HTML styles */
+    .diffins {
+      background-color: #d4edda; /* light green for insertions */
+      text-decoration: none;
+    }
+    .diffdel {
+      background-color: #f8d7da; /* light red for deletions */
+      text-decoration: none;
+    }
+    /* Inline unchanged text remains white background */
+    .diffins:hover, .diffdel:hover {
+      filter: brightness(0.9);
+    }
+    /* Diff context lines (unchanged) */
+    .diff {
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <h3 class="my-4 text-center">Colorized, Side-by-Side JSON Diff</h3>
+
+  <div class="diff-wrapper">
+    <!-- Render the raw HTML with <ins>/<del> tags -->
+    <div class="diff">
+      {{ diff_html | safe }}
+    </div>
+  </div>
+
+  <div class="text-center mb-4">
+    <a href="{{ url_for('json.dashboard') }}" class="btn btn-secondary">
+      Back to Dashboard
+    </a>
+  </div>
+{% endblock %}

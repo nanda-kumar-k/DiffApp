@@ -1,0 +1,100 @@
+:root[data-bs-theme="dark"] {
+    --bs-siderbar-bg: #393f4537;
+    --bs-siderbar-btn-hover-bg: #393f4537;
+    --bs-siderbar-btn-hover-color: #b2b2ba;
+}
+
+:root[data-bs-theme="light"] {
+    --bs-siderbar-bg: #f8f9fa;
+    --bs-siderbar-btn-hover-bg: #e9ecef;
+    --bs-siderbar-btn-hover-color: #696262;
+}
+
+
+/* Ensure body content isn’t hidden under the fixed navbar */
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    padding-top: 56px;
+}
+
+/* Persistent sidebar, hidden by default */
+#sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background-color: var(--bs-siderbar-bg);
+    padding-top: 0.5rem;
+    overflow-y: auto;
+    display: none;
+    z-index: 1030;
+    color: var(--bs-body-color);
+    transition: transform 0.3s ease;
+
+}
+
+/* When sidebar is shown, push page content to the right */
+#sidebar.show~.content-wrapper {
+    margin-left: 240px;
+}
+
+/* Sidebar header and close icon */
+#sidebar .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+    border-bottom: .5px solid #6c757d;
+    margin-bottom: 1rem;
+}
+
+#sidebar .sidebar-header h5 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+#sidebar .sidebar-close {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--bs-body-color);
+}
+
+#sidebar a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--bs-body-color);
+}
+
+#sidebar a:hover {
+    background-color: var(--bs-siderbar-btn-hover-bg);
+    color: var(--bs-siderbar-btn-hover-color);
+    /* font-weight: 500; */
+}
+
+.nav-btn {
+    border-width: 0 0 2px 0 !important;
+    border-bottom-style: solid !important;
+    border-bottom-color: none !important;
+    border-radius: 0 !important;
+}
+
+.nav-btn:hover {
+    border-bottom-color: var(--bs-body-color) !important;
+}
+
+.content-wrapper {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+    padding: 1rem 0rem;
+}
+
+#sidebar .nav-link.active {
+    font-weight: 700;
+}

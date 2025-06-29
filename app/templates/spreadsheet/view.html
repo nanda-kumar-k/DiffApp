@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block title %}File View - {{ which }}{% endblock %}
+
+{% block head %}
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&amp;display=swap"
+    rel="stylesheet" />
+<style>
+    #myGrid {
+        width: 100%;
+        height: 100%;
+    }
+
+    .custom-tool-panel {
+        /* padding: 8px; */
+        width: 100%;
+        /* font-family: 'IBM Plex Sans', sans-serif; */
+        /* font-weight: bold; */
+        min-width: 250px;
+    }
+
+    .custom-tool-panel p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .custom-tool-panel-sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px;
+        border-bottom: 1px solid #5d6165;
+        font-weight: 500;
+        font-family: var(--ag-font-family);
+        color: var(--ag-text-color);
+        width: 100%;
+    }
+
+
+    .custom-tool-panel-sidebar {
+        padding: 8px;
+    }
+
+    .menu-btn {
+        background-color: transparent;
+        border: none;
+        color: var(--ag-text-color);
+        font-weight: 500;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        font-size: 14px;
+        font-family: var(--ag-font-family);
+    }
+
+    .menu-btn .bi {
+        margin-right: .5rem;
+        transition: transform .2s ease;
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+
+
+    .menu-btn[aria-expanded="true"] .bi {
+        transform: rotate(90deg);
+    }
+
+    .btn-toolbar .btn {
+        --bs-border-opacity: .4;
+    }
+
+    .form-check-input[type='checkbox'] {
+        width: 18px;
+        height: 18px;
+        border: 1px solid #6c757d;
+        cursor: pointer;
+        border-radius: 6px;  
+    }
+
+    .form-check-input:checked {
+        background-color: var(--ag-checkbox-checked-background-color);
+        /* bright blue tick box */
+        border-color: var(--ag-checkbox-checked-border-color);
+        /* background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-width='3' d='M3 8l3 3 7-7'/%3E%3C/svg%3E"); */
+        background-size:90% 90%;
+        background-position:center;
+    }
+    .form-check-input:focus {
+        box-shadow:none;
+        border-color:#6c757d;
+    }
+    .form-check-label {
+        font-size: 14px;
+        color: var(--ag-text-color);
+        font-family: var(--ag-font-family);
+        font-weight: 400;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- <h3>{{ which }} File View</h3> -->
+
+<!-- Column-selection form -->
+<!-- 
+<form method="post" class="mb-4">
+    <div class="card shadow-sm mb-3">
+        <div class="card-header fw-semibold">
+            Choose Columns to Display
+        </div>
+        <div class="card-body">
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="check_all">
+                <label class="form-check-label" for="check_all"><strong>Select All Columns</strong></label>
+            </div>
+
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-1">
+                {% for col in columns %}
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input col-check" type="checkbox" name="columns" value="{{ col }}"
+                            id="col_{{ loop.index }}" {% if 'all' in selected or col in selected %}checked{% endif %}>
+                        <label class="form-check-label small" for="col_{{ loop.index }}">{{ col }}</label>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Apply</button>
+        </div>
+    </div>
+</form>
+-->
+<div id="myGrid" class="ag-theme-quartz"></div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const columns = {{ columns| tojson | safe }};
+    const rowData = {{ df_records| tojson | safe }};
+</script>
+<script src="{{ url_for('static', filename='js/spreadsheet/agGridTheme.js') }}"></script>
+<script src="{{ url_for('static', filename='js/spreadsheet/customToolPanel.js') }}"></script>
+<script src="{{ url_for('static', filename='js/spreadsheet/view.js') }}"></script>
+
+{% endblock %}

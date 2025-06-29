@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <div class="d-flex h-100 justify-content-center align-items-center">
+    <div class="row gx-4 gy-4 justify-content-center">
+
+      <!-- New JSONs Upload Card -->
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-center mb-3">New JSONs Upload</h5>
+            <p class="card-text text-center flex-grow-1">
+              Select and upload two new JSON files from your computer.
+            </p>
+            <a
+              href="{{ url_for('json.upload') }}"
+              class="btn btn-outline-primary mt-3"
+            >
+              Upload New JSONs
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- View Original JSONs Card -->
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-center mb-3">View Original JSONs</h5>
+            <p class="card-text text-center flex-grow-1">
+              See both uploaded JSON files side‐by‐side in a formatted view.
+            </p>
+            <a
+              href="{{ url_for('json.view_jsons') }}"
+              class="btn btn-outline-secondary mt-3"
+            >
+              View JSONs
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- See JSON Diff Card -->
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-center mb-3">See JSON Diff</h5>
+            <p class="card-text text-center flex-grow-1">
+              Compare the two JSONs and view a color‐coded diff highlighting changes.
+            </p>
+            <a
+              href="{{ url_for('json.diff_jsons') }}"
+              class="btn btn-outline-success mt-3"
+            >
+              View Diff
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

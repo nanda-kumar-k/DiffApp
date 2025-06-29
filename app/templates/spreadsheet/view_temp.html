@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ which }} File View</h3>
+
+<!-- Column-selection form -->
+<form method="post" class="mb-4">
+  <div class="card shadow-sm mb-3">
+    <div class="card-header fw-semibold">Choose Columns to Display</div>
+    <div class="card-body">
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" id="check_all">
+        <label class="form-check-label" for="check_all"><strong>Select All Columns</strong></label>
+      </div>
+
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-1">
+        {% for col in columns %}
+        <div class="col">
+          <div class="form-check">
+            <input class="form-check-input col-check"
+                   type="checkbox"
+                   name="columns"
+                   value="{{ col }}"
+                   id="col_{{ loop.index }}"
+                   {% if 'all' in selected or col in selected %}checked{% endif %}>
+            <label class="form-check-label small" for="col_{{ loop.index }}">{{ col }}</label>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <button class="btn btn-success mt-3">Apply</button>
+    </div>
+  </div>
+</form>
+
+<!-- Global Search Controls -->
+<div class="input-group mb-1">
+  <input id="globalQuery" type="text" class="form-control" placeholder="Global search…">
+  <select id="searchMode" class="form-select" style="max-width:10rem">
+      <option value="plain">Plain</option>
+      <option value="exact">Exact</option>
+      <option value="regex">Regex</option>
+      <option value="smart">Smart</option>
+  </select>
+  <label class="input-group-text">
+    <input id="caseSense" type="checkbox" class="form-check-input me-1">
+    Case-sensitive
+  </label>
+</div>
+<small id="searchInfo" class="text-muted">Plain – fast case‑insensitive substring search across all columns.</small>
+
+<!-- Export buttons (right-aligned) -->
+
+
+<!-- Data table -->
+<div class="table-responsive mt-2">
+  {{ table_html | safe }}
+
+<!-- Export dropdown (hidden until moved) -->
+<div id="exportDropdown" class="d-inline-block ms-3">
+  <div class="btn-group">
+    <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle d-flex align-items-center gap-1" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-download"></i><span>Export</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" data-export="copy"><i class="bi bi-clipboard"></i>Copy</a></li>
+      <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" data-export="csv"><i class="bi bi-file-earmark-spreadsheet"></i>CSV</a></li>
+      <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" data-export="excel"><i class="bi bi-file-earmark-excel"></i>Excel</a></li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<script>
+  // --- “Select All” logic -----------------------
+  const checkAll   = document.getElementById('check_all');
+  const colChecks  = document.querySelectorAll('.col-check');
+
+  function setAll(state) { colChecks.forEach(cb => cb.checked = state); }
+  checkAll?.addEventListener('change', () => setAll(checkAll.checked));
+  colChecks.forEach(cb => cb.addEventListener('change', () => {
+      if (!cb.checked) checkAll.checked = false;
+      else checkAll.checked = Array.from(colChecks).every(x => x.checked);
+  }));
+
+  // --- DataTables init --------------------------
+  $(document).ready(function () {
+      const dt = $('#dataTable').DataTable({
+          colResize:{ realtime:true, handleWidth:8, headerOnly:false },
+          colReorder:{ realtime:true },
+          dom: 'lrtip',
+              
+              
+              buttons: [
+                  { extend: 'copy',  name: 'copy',  className: 'd-none', exportOptions: { columns: ':visible' } },
+                  { extend: 'csv',   name: 'csv',   className: 'd-none', exportOptions: { columns: ':visible' } },
+                  { extend: 'excel', name: 'excel', className: 'd-none', exportOptions: { columns: ':visible' } }
+              ],         // remove built-in global search box
+          orderCellsTop: true,
+          fixedHeader: true
+      });
+
+      // Clone header row for per-column filters
+      $('#dataTable thead tr').clone(true).appendTo('#dataTable thead');
+      $('#dataTable thead tr:eq(1) th').each(function () {
+          $(this).html('<select class="form-select form-select-sm"></select>');
+      });
+
+      // Update dropdown counts
+      function updateDropdowns() {
+          dt.columns().every(function (idx) {
+              const column = this;
+              const select = $('select', $('#dataTable thead tr:eq(1) th')[idx]);
+
+              const counts = {};
+              column.data().each(function (d) {
+                  const txt = $('<div/>').html(d).text();
+                  counts[txt] = (counts[txt] || 0) + 1;
+              });
+
+              const total = column.data().length;
+              select.empty().append('<option value="">All (' + total + ')</option>');
+              Object.keys(counts).sort().forEach(function (key) {
+                  const encoded = $('<div/>').text(key).html();
+                  select.append('<option value="' + encoded + '">' + key + ' (' + counts[key] + ')</option>');
+              });
+          });
+      }
+      updateDropdowns();
+
+      // Apply column filter on change
+      $('#dataTable thead').on('change', 'select', function () {
+          const th = $(this).parent('th');
+          const idx = th.index();
+          const val = $.fn.dataTable.util.escapeRegex($(this).val());
+          dt.column(idx).search(val ? '^' + val + '$' : '', true, false).draw();
+      });
+
+      // Refresh counts after each draw
+      dt.on('draw', updateDropdowns);
+          // Hide default buttons
+          dt.buttons().container().addClass('d-none');
+          // Move export dropdown next to DataTables length control
+          $('.dataTables_length').append($('#exportDropdown'));
+          // Map dropdown actions
+          $(document).on('click', '[data-export]', function(e){
+              e.preventDefault();
+              const type = $(this).data('export');
+              dt.button(type + ':name').trigger();
+          });
+
+          // Move Buttons container to custom div
+          
+
+
+      // --- Custom global search with modes -------
+      const $q    = $('#globalQuery');
+      const $mode = $('#searchMode');
+      const $cs   = $('#caseSense');
+      const $info = $('#searchInfo');
+
+      const explain = {
+          plain: 'Plain – fast case‑insensitive substring search across all columns.',
+          exact: 'Exact – match the entire row text exactly; combine with “Case‑sensitive” if needed.',
+          regex: 'Regex – use full JavaScript regular expressions (e.g., ^2025.*USA$).',
+          smart: 'Smart – DataTables “contains all these words” search (order agnostic, case‑insensitive).'
+      };
+
+      function applyGlobalSearch() {
+          const query = $q.val();
+          const mode  = $mode.val();
+          const cs    = $cs.prop('checked');
+
+          let regex=false, smart=false, pattern=query;
+
+          switch(mode) {
+              case 'exact':
+                  pattern = '^' + $.fn.dataTable.util.escapeRegex(query) + '$';
+                  regex = true;
+                  break;
+              case 'regex':
+                  regex = true;
+                  break;
+              case 'smart':
+                  smart = true;
+                  break;
+              case 'plain':
+              default:
+                  // plain substring
+          }
+          dt.search(pattern, regex, smart, cs).draw();
+          $info.text(explain[mode]);   // update help text
+      }
+
+      let debounceTimer=null;
+      $q.on('input', function () {
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(applyGlobalSearch, 200);
+      });
+      $mode.on('change', applyGlobalSearch);
+      $cs.on('change', applyGlobalSearch);
+
+      // Initial description
+      $info.text(explain[$mode.val()]);
+  });
+</script>
+{% endblock %}
