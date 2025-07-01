@@ -11826,3 +11826,123 @@
 2025-06-30 01:57:38,376 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:57:38] "GET /static/cssMain/basic.css HTTP/1.1" 200 -
 2025-06-30 01:57:38,378 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:57:38] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
 2025-06-30 01:57:38,893 [INFO] werkzeug: 127.0.0.1 - - [30/Jun/2025 01:57:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-01 16:46:44,736 [INFO] app: Starting Flask application
+2025-07-01 16:46:44,817 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.2:8000
+2025-07-01 16:46:44,817 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-07-01 16:46:44,818 [INFO] werkzeug:  * Restarting with stat
+2025-07-01 16:46:45,235 [INFO] app: Starting Flask application
+2025-07-01 16:46:45,260 [WARNING] werkzeug:  * Debugger is active!
+2025-07-01 16:46:45,268 [INFO] werkzeug:  * Debugger PIN: 372-648-475
+2025-07-01 16:46:48,822 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 16:46:48] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-01 16:46:48,841 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 16:46:48] "GET /json/upload HTTP/1.1" 200 -
+2025-07-01 16:46:48,891 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 16:46:48] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 16:46:48,891 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 16:46:48] "GET /static/cssMain/basic.css HTTP/1.1" 200 -
+2025-07-01 16:46:49,116 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 16:46:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-01 17:01:02,533 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:02] "[32mGET /spreadsheet/dashboard HTTP/1.1[0m" 302 -
+2025-07-01 17:01:02,543 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:02] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:01:02,572 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:02] "GET /static/cssMain/basic.css HTTP/1.1" 200 -
+2025-07-01 17:01:02,577 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:02] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:01:02,656 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-01 17:01:15,301 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:15] "[32mGET /spreadsheet/dashboard HTTP/1.1[0m" 302 -
+2025-07-01 17:01:15,310 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:15] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:01:15,337 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:15] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:01:15,339 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:15] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:01:16,766 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:16] "[32mGET /spreadsheet/view/first HTTP/1.1[0m" 302 -
+2025-07-01 17:01:16,771 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:16] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:01:16,792 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:16] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:01:16,793 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:16] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:01:33,817 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:33] "POST /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:01:33,845 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:33] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:01:33,846 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:33] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:01:35,294 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:35] "[32mGET /spreadsheet/view/first HTTP/1.1[0m" 302 -
+2025-07-01 17:01:35,298 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:35] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:01:35,324 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:35] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:01:35,326 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:35] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:01:44,088 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:44] "POST /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:01:44,111 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:44] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:01:44,112 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:44] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:01:57,804 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:57] "POST /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:01:57,827 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:57] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:01:57,828 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:01:57] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:05:57,867 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:05:57] "POST /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:05:57,902 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:05:57] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:05:57,905 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:05:57] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:06:04,452 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:06:04] "[33mGET /spreadsheet/installHook.js.map HTTP/1.1[0m" 404 -
+2025-07-01 17:06:20,494 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:06:20] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:06:20,534 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:06:20] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:06:20,540 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:06:20] "[33mGET /spreadsheet/installHook.js.map HTTP/1.1[0m" 404 -
+2025-07-01 17:06:20,541 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:06:20] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:07:36,201 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:07:36] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:07:36,239 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:07:36] "GET /static/cssMain/basic.css HTTP/1.1" 200 -
+2025-07-01 17:07:36,240 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:07:36] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:07:36,248 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:07:36] "[33mGET /spreadsheet/installHook.js.map HTTP/1.1[0m" 404 -
+2025-07-01 17:08:01,208 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:08:01] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:08:01,241 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:08:01] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:08:01,242 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:08:01] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:08:01,246 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:08:01] "[33mGET /spreadsheet/installHook.js.map HTTP/1.1[0m" 404 -
+2025-07-01 17:08:07,147 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:08:07] "[33mGET /spreadsheet/<anonymous%20code> HTTP/1.1[0m" 404 -
+2025-07-01 17:19:26,484 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:19:26] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:19:26,653 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:19:26] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:19:26,658 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:19:26] "[33mGET /spreadsheet/installHook.js.map HTTP/1.1[0m" 404 -
+2025-07-01 17:19:26,661 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:19:26] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:19:26,909 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:19:26] "GET /static/diffapp_favicon_da_creative.ico HTTP/1.1" 200 -
+2025-07-01 17:56:36,162 [INFO] werkzeug:  * Detected change in '/Users/nandakumark/Projects/DiffApp/app/handlers_spreadsheet.py', reloading
+2025-07-01 17:56:36,557 [INFO] werkzeug:  * Restarting with stat
+2025-07-01 17:56:37,734 [INFO] app: Starting Flask application
+2025-07-01 17:56:38,063 [WARNING] werkzeug:  * Debugger is active!
+2025-07-01 17:56:38,090 [INFO] werkzeug:  * Debugger PIN: 372-648-475
+2025-07-01 17:56:39,451 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:56:39] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:56:39,561 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:56:39] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:56:39,561 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:56:39] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:56:50,503 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:56:50] "POST /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 17:56:50,540 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:56:50] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:56:50,540 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:56:50] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:57:43,735 [INFO] app: Starting Flask application
+2025-07-01 17:57:43,917 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.2:8000
+2025-07-01 17:57:43,917 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-07-01 17:57:43,918 [INFO] werkzeug:  * Restarting with stat
+2025-07-01 17:57:44,443 [INFO] app: Starting Flask application
+2025-07-01 17:57:44,464 [WARNING] werkzeug:  * Debugger is active!
+2025-07-01 17:57:44,478 [INFO] werkzeug:  * Debugger PIN: 372-648-475
+2025-07-01 17:57:52,362 [INFO] app.handlers_spreadsheet: Stored new spreadsheet pair under run_id=1d881351-b26e-412e-9ecb-062d217c0dc1
+2025-07-01 17:57:52,364 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:52] "[32mPOST /spreadsheet/upload HTTP/1.1[0m" 302 -
+2025-07-01 17:57:52,376 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:52] "GET /spreadsheet/dashboard HTTP/1.1" 200 -
+2025-07-01 17:57:52,460 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:52] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:57:52,462 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:52] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:57:54,045 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:54] "GET /spreadsheet/view/first HTTP/1.1" 200 -
+2025-07-01 17:57:54,087 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:54] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 17:57:54,090 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:54] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 17:57:54,091 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:54] "GET /static/js/spreadsheet/agGridTheme.js HTTP/1.1" 200 -
+2025-07-01 17:57:54,092 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:54] "GET /static/js/spreadsheet/view.js HTTP/1.1" 200 -
+2025-07-01 17:57:54,094 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 17:57:54] "GET /static/js/spreadsheet/customToolPanel.js HTTP/1.1" 200 -
+2025-07-01 18:18:24,221 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:24] "GET /spreadsheet/dashboard HTTP/1.1" 200 -
+2025-07-01 18:18:24,254 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:24] "GET /static/cssMain/basic.css HTTP/1.1" 200 -
+2025-07-01 18:18:24,254 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:24] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 18:18:27,361 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:27] "GET /spreadsheet/upload HTTP/1.1" 200 -
+2025-07-01 18:18:27,391 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:27] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 18:18:27,391 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:27] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 18:18:36,493 [INFO] app.handlers_spreadsheet: Stored new spreadsheet pair under run_id=5b190d2f-e734-4c00-9113-b6c2055e9b12
+2025-07-01 18:18:36,494 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:36] "[32mPOST /spreadsheet/upload HTTP/1.1[0m" 302 -
+2025-07-01 18:18:36,497 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:36] "GET /spreadsheet/dashboard HTTP/1.1" 200 -
+2025-07-01 18:18:36,527 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:36] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 18:18:36,528 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:36] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 18:18:41,377 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:41] "GET /spreadsheet/view/first HTTP/1.1" 200 -
+2025-07-01 18:18:41,402 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:41] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 18:18:41,407 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:41] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 18:18:41,409 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:41] "GET /static/js/spreadsheet/view.js HTTP/1.1" 200 -
+2025-07-01 18:18:41,409 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:41] "GET /static/js/spreadsheet/customToolPanel.js HTTP/1.1" 200 -
+2025-07-01 18:18:41,410 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:18:41] "[36mGET /static/js/spreadsheet/agGridTheme.js HTTP/1.1[0m" 304 -
+2025-07-01 18:27:59,260 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 18:27:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-01 19:12:21,821 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 19:12:21] "GET /spreadsheet/view/first HTTP/1.1" 200 -
+2025-07-01 19:12:21,847 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 19:12:21] "[36mGET /static/cssMain/basic.css HTTP/1.1[0m" 304 -
+2025-07-01 19:12:21,849 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 19:12:21] "[36mGET /static/js/basic.js HTTP/1.1[0m" 304 -
+2025-07-01 19:12:21,850 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 19:12:21] "[36mGET /static/js/spreadsheet/agGridTheme.js HTTP/1.1[0m" 304 -
+2025-07-01 19:12:21,850 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 19:12:21] "[36mGET /static/js/spreadsheet/customToolPanel.js HTTP/1.1[0m" 304 -
+2025-07-01 19:12:21,851 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 19:12:21] "[36mGET /static/js/spreadsheet/view.js HTTP/1.1[0m" 304 -
+2025-07-01 19:12:21,954 [INFO] werkzeug: 127.0.0.1 - - [01/Jul/2025 19:12:21] "GET /static/diffapp_favicon_da_creative.ico HTTP/1.1" 200 -
