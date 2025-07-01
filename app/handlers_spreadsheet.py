@@ -52,6 +52,7 @@ def upload() -> str:
                 return render_template("spreadsheet/upload.html")
         except Exception as e:
             flash(f"Error reading '{fname1}': {e}", category="danger")
+            print(f"Error reading '{fname1}': {e}")
             return render_template("spreadsheet/upload.html")
 
         run_id = SPREADSHEET_STORE.create(data1, data2)
