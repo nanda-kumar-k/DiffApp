@@ -81,7 +81,7 @@ body {
 .nav-btn {
     border-width: 0 0 2px 0 !important;
     border-bottom-style: solid !important;
-    border-bottom-color: none !important;
+    /* border-bottom-color: none !important; */
     border-radius: 0 !important;
 }
 

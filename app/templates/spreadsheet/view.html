@@ -16,6 +16,7 @@
         /* font-family: 'IBM Plex Sans', sans-serif; */
         /* font-weight: bold; */
         min-width: 250px;
+        /* background-color: red; */
     }
 
     .custom-tool-panel p {
@@ -97,6 +98,7 @@
         font-family: var(--ag-font-family);
         font-weight: 400;
         cursor: pointer;
+        width: 200px;
     }
 </style>
 {% endblock %}
@@ -144,7 +146,8 @@
     const rowData = {{ df_records| tojson | safe }};
 </script>
 <script src="{{ url_for('static', filename='js/spreadsheet/agGridTheme.js') }}"></script>
-<script src="{{ url_for('static', filename='js/spreadsheet/customToolPanel.js') }}"></script>
+<script src="{{ url_for('static', filename='js/spreadsheet/customAdvancedFiltersToolPanel.js') }}"></script>
+<script src="{{ url_for('static', filename='js/spreadsheet/customExportToolPanel.js') }}"></script>
 <script src="{{ url_for('static', filename='js/spreadsheet/view.js') }}"></script>
 
 {% endblock %}
